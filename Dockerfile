@@ -11,6 +11,7 @@ LABEL "com.github.actions.color"="orange"
 
 LABEL "maintainer"="Berg <https://github.com/researchgate/>"
 
+RUN apt-get update && apt-get install wget
 RUN wget https://apt.puppet.com/puppet7-release-focal.deb && dpkg -i puppet7-release-focal.deb && apt-get update && apt-get install -y puppet-agent
 COPY entrypoint.sh /entrypoint.sh
 RUN ["chmod", "+x", "/entrypoint.sh"]
