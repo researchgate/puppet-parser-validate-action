@@ -11,7 +11,7 @@ LABEL "com.github.actions.color"="orange"
 
 LABEL "maintainer"="Berg <https://github.com/researchgate/>"
 
-RUN apt-get update && apt-get install puppet
+RUN apt-get update && apt-get install -y puppet
 COPY entrypoint.sh /entrypoint.sh
 RUN ["chmod", "+x", "/entrypoint.sh"]
 ENTRYPOINT ["/entrypoint.sh"]
