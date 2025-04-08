@@ -12,7 +12,7 @@ LABEL "com.github.actions.color"="orange"
 LABEL "maintainer"="Berg <https://github.com/researchgate/>"
 
 RUN apt-get update && apt-get install -y wget gnupg
-RUN wget -qO - https://apt.puppetlabs.com/DEB-GPG-KEY-future | apt-key add -
+RUN apt-key adv --fetch-keys https://apt.puppetlabs.com/DEB-GPG-KEY-future
 RUN wget https://apt.puppet.com/puppet7-release-focal.deb && dpkg -i puppet7-release-focal.deb && apt-get update && apt-get install -y puppet-agent
 COPY entrypoint.sh /entrypoint.sh
 RUN ["chmod", "+x", "/entrypoint.sh"]
